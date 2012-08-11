@@ -1,5 +1,7 @@
 /*!
- * Bremen.js
+ * Bremen.js - Workshop #1
+ *
+ * Photoframe
  *
  * Copyright(c) 2012 Bremen, Germany
  *
@@ -11,11 +13,11 @@
  * MIT Licensed
  *
  */
-var Cards = {
 
-    {
-        id: 'card-01',
-        imageUrl: 'http://barcampcologne.mixxt.de/storage/images/profiles/d/5/4/0ec4cb4c1536273bdf869ce8bcc72.jpg'
-    }
+(function () {
+    
+    Photos.search('Bremen', function (photos) {
+        console.log(photos);
+    });
 
-};
+}());
