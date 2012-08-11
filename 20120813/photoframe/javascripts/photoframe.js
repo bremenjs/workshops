@@ -18,10 +18,10 @@
 
 var Photoframe = function () {
 
-    var $slideshowButton = document.querySelector('#slideshow-action')
-      , $searchbox       = document.querySelector('#search-term')
-      , that             = this
-      , privates         = {};
+    var $searchform = document.querySelector('#search')
+      , $searchbox  = document.querySelector('#term')
+      , that        = this
+      , privates    = {};
 
     // DOCME
     privates.getSearchTerm = function () {
@@ -29,20 +29,21 @@ var Photoframe = function () {
     };
 
     // DOCME
-    $slideshowButton.addEventListener('click', function (e) {
+    $searchform.addEventListener('submit', function (e) {
         var searchTerm = privates.getSearchTerm();
 
         e.preventDefault();
 
         Photos.search(searchTerm, function (photos) {
-            that.showSlideshow(photos);
+            that.showSlideshow(searchTerm, photos);
         });
     });
 };
 
 // DOCME
-Photoframe.prototype.showSlideshow = function (photos) {
-    var slideshow = new Slideshow(photos);
+Photoframe.prototype.showSlideshow = function (searchTerm, photos) {
+    var slideshow = new Slideshow(searchTerm, photos);
 
     slideshow.show();
+    slideshow.play();
 };
