@@ -84,7 +84,6 @@ var Slideshow = function (searchTerm, photoItems) {
             photo = photos[0];
 
         } else if (isLast) {
-            console.log("LETZTES BILD");
             delete photo.selected;
 
             photo = photos[0];
