@@ -18,8 +18,7 @@
 
 var Photoframe = function () {
 
-    var $gridButton      = document.querySelector('#grid-action')
-      , $slideshowButton = document.querySelector('#slideshow-action')
+    var $slideshowButton = document.querySelector('#slideshow-action')
       , $searchbox       = document.querySelector('#search-term')
       , that             = this
       , privates         = {};
@@ -28,17 +27,6 @@ var Photoframe = function () {
     privates.getSearchTerm = function () {
         return $searchbox.value || 'New York';
     };
-
-    // DOCME
-    $gridButton.addEventListener('click', function (e) {
-        var searchTerm = privates.getSearchTerm();
-
-        e.preventDefault();
-
-        Photos.search(searchTerm, function (photos) {
-            that.showGrid(photos);
-        });
-    });
 
     // DOCME
     $slideshowButton.addEventListener('click', function (e) {
@@ -50,13 +38,6 @@ var Photoframe = function () {
             that.showSlideshow(photos);
         });
     });
-};
-
-// DOCME
-Photoframe.prototype.showGrid = function (photos) {
-    var grid = new Grid(photos);
-
-    grid.show();
 };
 
 // DOCME
