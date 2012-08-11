@@ -14,10 +14,8 @@
  *
  */
 
-/*
+"use strict";
 
-
-*/
 var Photos = {
     search : function (term, callback) {
 
@@ -55,8 +53,5 @@ var Photos = {
 
         request.open('GET', url, false);
         request.send();
-
-// 
-        
     }
 };

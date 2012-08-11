@@ -16,8 +16,11 @@
 
 "use strict";
 
-(function () {
+var Grid = function (photos) {
+    console.log('Grid');
+    console.log(photos);
+};
 
-    var photoframe = new Photoframe();
+Grid.prototype.show = function () {
 
-}());
+};

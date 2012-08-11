@@ -16,8 +16,11 @@
 
 "use strict";
 
-(function () {
+var Slideshow = function (photos) {
+    console.log('Slideshow');
+    console.log(photos);
+};
 
-    var photoframe = new Photoframe();
+Slideshow.prototype.show = function () {
 
-}());
+};
