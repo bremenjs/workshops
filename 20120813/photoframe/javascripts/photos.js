@@ -34,9 +34,10 @@ var Photos = {
                 jsonFlickrApi = function (data) {
                     var photos = []
                       , photosRaw = data.photos.photo
-                      , i = 0;
+                      , i = 0
+                      , max = 0;
 
-                    for (i; i < photosRaw.length; i++) {
+                    for (i = 0, max = photosRaw.length; i < max; i++) {
                         var photoRaw = photosRaw[i];
 
                         photos.push({
