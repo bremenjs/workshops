@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Vier Gewinnt</title>
+
+<style>
+	* {
+		font-family:sans-serif;
+	}
+	table {
+		background-color:#0000FF;
+	}
+	td {
+		background-color:#FFFFFF;
+		cursor:pointer;
+		width:60px;
+		height:60px;
+		border-radius: 30px;
+		border: 1px solid;
+	}
+	td.column-hover {
+		background-color:#EEEEEE;
+	}
+	p {
+		font-size:larger;
+	}
+	td.player-red {
+		background-color:#FF0000;
+	}
+	td.player-yellow {
+		background-color:#FFCC33;
+	}
+	span.player-red {
+		color:#FF0000;
+	}
+	span.player-yellow {
+		color:#FFCC33;
+	}
+</style>
+</head>
+<body style="width:450px; margin:0 auto;">
+	<h1>Vier Gewinnt</h1>
+	<p><b>Spieler:</b> <span id="player"></span></p>
+	<table id="field"></table>
+	<script src="app.js"></script>
+</body>
+</html>
