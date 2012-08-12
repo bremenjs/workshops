@@ -48,7 +48,7 @@ var Photos = {
                 callback(photos);
             };
 
-            eval(response);
+            eval(response); // Eval ist evil, but in this case it is okay. We only communicate with the Flickr API.
         });
 
         request.open('GET', url, false);

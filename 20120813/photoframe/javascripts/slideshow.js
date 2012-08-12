@@ -25,7 +25,8 @@ var Slideshow = function (searchTerm, photoItems) {
       , $root    = null
       , $photo   = null;
 
-    // DOCME
+    // "Private" Methode, die das UI der Slideshow erstellt (Erstellung
+    // von DOM-Elementen, Zuweisung der IDs und Klassen, etc.).
     privates.createUI = function () {
         var $close    = document.createElement('a')
           , $headline = document.createElement('h1')
@@ -50,14 +51,17 @@ var Slideshow = function (searchTerm, photoItems) {
 
         document.querySelectorAll('body')[0].appendChild($root);
 
+        // Event-Handler, der ausgefuehrt wird, wenn der Benutzer auf den Button
+        // zur Beendigung der Slideshow klickt.
         $close.addEventListener('click', function (e) {
-            e.preventDefault();
+            e.preventDefault(); // Standard-Verhalten des Browsers unterbinden. Der Browser wuerde sonst dem Link folgen.
 
             that.destroy();
         });
     };
 
-    // DOCME
+    // "Private" Methode zur Ermittlung des Index des gerade sichtbaren Fotos.
+    // Liefert "-1" zurueck, wenn bisher noch kein Fotos sichtbar ist.
     privates.getCurrentPhotoIndex = function () {
         var i = 0
           , available = false;
@@ -74,7 +78,8 @@ var Slideshow = function (searchTerm, photoItems) {
         return (!available) ? -1 : i;
     };
 
-    // DOCME
+    // "Private" Methode zur Ermittlung des naechsten Fotos, welches
+    // angezeigt werden sollte.
     privates.getNextPhoto = function () {
         var currentPhotoIndex = privates.getCurrentPhotoIndex()
           , photo = photos[currentPhotoIndex]
@@ -101,22 +106,28 @@ var Slideshow = function (searchTerm, photoItems) {
         return photo;
     };
 
-    // DOCME
+    // "Oeffentliche" Methode. Anzeigen der Slideshow. Erstellt das UI.
     this.show = function () {
         privates.createUI();
 
         $root.style.display = 'block';
     };
 
-    // DOCME
+    // "Oeffentliche" Methode. Ausblenden der Slideshow.
+    // Entfernt das UI und beendet die Aktualisierung der Bilder.
     this.destroy = function () {
+
+        // Um ein Element aus dem DOM loeschen zu koennen, muss erst
+        // einmal das Eltern-Element ermittelt werden. Ein Loeschen ist
+        // nur ueber diesen Weg moeglich.
         var parent = $root.parentNode;
         parent.removeChild($root);
 
         window.clearInterval(switcher);
     };    
 
-    // DOCME
+    // "Oeffentliche" Methode.
+    // Startet das Intervall zur Aktualisierung der Bilder.
     this.play = function () {
         var that = this;
 

@@ -16,6 +16,7 @@
 
 "use strict";
 
+// Die "main" Methode.
 (function () {
 
     var photoframe = new Photoframe();
