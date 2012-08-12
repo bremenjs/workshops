@@ -29,26 +29,29 @@ var Photos = {
             var response = evt.target.response
               , jsonFlickrApi;
 
-            jsonFlickrApi = function (data) {
-                var photos = []
-                  , photosRaw = data.photos.photo
-                  , i = 0;
+            // Securing the eval.
+            (function () {
+                jsonFlickrApi = function (data) {
+                    var photos = []
+                      , photosRaw = data.photos.photo
+                      , i = 0;
 
-                for (i; i < photosRaw.length; i++) {
-                    var photoRaw = photosRaw[i];
+                    for (i; i < photosRaw.length; i++) {
+                        var photoRaw = photosRaw[i];
 
-                    photos.push({
-                        title:  photoRaw.title
-                      , small:  'http://farm'+photoRaw.farm+'.staticflickr.com/'+photoRaw.server+'/'+photoRaw.id+'_'+photoRaw.secret+'.jpg'
-                      , medium: 'http://farm'+photoRaw.farm+'.staticflickr.com/'+photoRaw.server+'/'+photoRaw.id+'_'+photoRaw.secret+'_z.jpg'
-                      , large:  'http://farm'+photoRaw.farm+'.staticflickr.com/'+photoRaw.server+'/'+photoRaw.id+'_'+photoRaw.secret+'_b.jpg'
-                    });
-                }
+                        photos.push({
+                            title:  photoRaw.title
+                          , small:  'http://farm'+photoRaw.farm+'.staticflickr.com/'+photoRaw.server+'/'+photoRaw.id+'_'+photoRaw.secret+'.jpg'
+                          , medium: 'http://farm'+photoRaw.farm+'.staticflickr.com/'+photoRaw.server+'/'+photoRaw.id+'_'+photoRaw.secret+'_z.jpg'
+                          , large:  'http://farm'+photoRaw.farm+'.staticflickr.com/'+photoRaw.server+'/'+photoRaw.id+'_'+photoRaw.secret+'_b.jpg'
+                        });
+                    }
 
-                callback(photos);
-            };
+                    callback(photos);
 
-            eval(response); // Eval ist evil, but in this case it is okay. We only communicate with the Flickr API.
+                    eval(response);
+              };
+            }())
         });
 
         request.open('GET', url, false);
