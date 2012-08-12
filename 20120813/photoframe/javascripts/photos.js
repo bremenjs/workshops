@@ -48,10 +48,10 @@ var Photos = {
                     }
 
                     callback(photos);
-
-                    eval(response);
-              };
-            }())
+                };
+  
+                eval(response);
+            }());
         });
 
         request.open('GET', url, false);
