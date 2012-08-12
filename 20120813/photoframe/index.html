@@ -1,22 +1,31 @@
 <!doctype html>
 <html lang="de">
     <head>
+        <meta charset="UTF-8">
         <title>Bremen.js - JavaScript Workshop #1: Photoframe</title>
 
         <link rel="stylesheet" href="stylesheets/screen.css">
     </head>
     <body>
-        <div id="photoframe">
+        <div id="photoframe" class="container">
             <header>
-                <h1>Photoframe</h1>
-                <h2>data from flickr</h2>
+                <h1>pf*</h1>
+                <h2>with <span class="flickr">flick<i>r</i></span></h2>
             </header>
 
-            <form id="search">
-                <input id="term" type="text" placeholder="Bildersuche">
-                <input type="submit" value="Play">
+            <p class="eyecatcher">Suche nach einem <strong>Stichwort</strong> und drücke auf Play. Der <strong>*Photoframe</strong> sorgt für die Entspannung. Sit back and relax!</p>
+
+            <form id="search" class="form-horizontal">
+                <input id="term" class="input-xlarge" type="text" placeholder="Suchbegriff (z. B. New York)">
+                <button class="btn btn-inverse"><i class="icon-play icon-white"></i>Play</button>
             </form>
         </div>
+
+        <footer>
+            <div class="container">
+                <p class="copyright"><a href="http://bremenjs.de">Bremen.js</a> Workshop #1</p>
+            </div>
+        </footer>
 
         <script src="javascripts/photoframe.js"></script>
         <script src="javascripts/slideshow.js"></script>

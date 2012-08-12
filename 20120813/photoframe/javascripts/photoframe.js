@@ -35,7 +35,11 @@ var Photoframe = function () {
         e.preventDefault();
 
         Photos.search(searchTerm, function (photos) {
-            that.showSlideshow(searchTerm, photos);
+            if (photos.length === 0) {
+                window.alert('Zu diesem Suchbegriff wurden keine Fotos gefunden.');
+            } else {
+                that.showSlideshow(searchTerm, photos);
+            }
         });
     });
 };

@@ -20,7 +20,7 @@ var Slideshow = function (searchTerm, photoItems) {
     var photos   = photoItems
       , privates = {}
       , switcher = null  // ID des setInterval
-      , duration = 1000  // Anzeigedauer bis zum Bildwechsel
+      , duration = 2000  // Anzeigedauer bis zum Bildwechsel
       , that     = this
       , $root    = null
       , $photo   = null;
@@ -31,12 +31,14 @@ var Slideshow = function (searchTerm, photoItems) {
           , $headline = document.createElement('h1')
           , $text;
 
-        $root = document.createElement('div')
+        $root = document.createElement('div');
+        $root.setAttribute('id', 'slideshow');
 
-        $text = document.createTextNode('Slideshow aller Begriffe mit ' + searchTerm);
+        $text = document.createTextNode('Slideshow aller Fotos mit dem Suchbegriff "' + searchTerm + '"');
         $headline.appendChild($text);
 
         $close.setAttribute('href', '#');
+        $close.setAttribute('class', 'close');
         $text = document.createTextNode('Beenden');
         $close.appendChild($text);
 
